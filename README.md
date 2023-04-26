@@ -42,6 +42,7 @@ Listar usuário logado | GET /customers
 NoBody
 
 Atualizar uduário logado | PATCH /customers
+
 body {
     name: "Edu"
     email: "dudu@mail.com"
@@ -50,16 +51,20 @@ body {
 }
 
 Deletar usuário | DELETE /customers
+
 NoBody
 
 ## LOGIN
+
 Para fazer login | POST /login
+
 body {
 	"email": "dudu@mail.com",
 	"password": "12345678"
 }
 
 Para a criação de um contato | POST /contact
+
 body: {
     name: "yuri",
     email: "yuri@mail.com",
@@ -67,9 +72,11 @@ body: {
 }
 
 Listar contatos do usuário logado | GET /contact
+
 NoBody
 
 Atualizar contato | PATCH /contact/id
+
 body {
     name: "Cadu"
     email: "Cadu@mail.com"
@@ -77,5 +84,6 @@ body {
 }
 
 Deletar contato | DELETE /contact/id
+
 NoBody
 
