@@ -9,7 +9,6 @@ import {
   ensureDataIsValidMiddleware,
   ensureUpdateDataIsValidMiddleware,
 } from "../middlewares/ensureDataIsValid.middlewares";
-import ensureItIsExistMiddleware from "../middlewares/ensureExists.middleware";
 import { customerSchema, customerUpdateSchema } from "../schemas/customer.schemas";
 
 const customerRoutes: Router = Router();
@@ -23,14 +22,12 @@ customerRoutes.post(
 customerRoutes.get(
   "",
   ensureAuthMiddleware,
-  ensureItIsExistMiddleware(Customer),
   listCustomerController
 );
 
 customerRoutes.patch(
   "",
   ensureAuthMiddleware,
-  ensureItIsExistMiddleware(Customer),
   ensureUpdateDataIsValidMiddleware(customerUpdateSchema),
   updateUserController
 );
