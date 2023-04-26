@@ -6,7 +6,6 @@ import updateContactController from "../controllers/contact/updateContact.contro
 import { Contact } from "../entities/contact.entities";
 import ensureAuthMiddleware from "../middlewares/ensureAuth.middlewares";
 import { ensureDataIsValidMiddleware, ensureUpdateDataIsValidMiddleware } from "../middlewares/ensureDataIsValid.middlewares";
-import ensureItIsExistMiddleware from "../middlewares/ensureExists.middleware";
 import { contactRequestSchema } from "../schemas/contact.schemas";
 
 const contactRoutes: Router = Router();
@@ -22,7 +21,6 @@ contactRoutes.get("", ensureAuthMiddleware, listContactController);
 contactRoutes.patch(
   "/:id",
   ensureAuthMiddleware,
-  ensureItIsExistMiddleware(Contact),
   ensureUpdateDataIsValidMiddleware(contactRequestSchema),
   updateContactController
 );
@@ -30,7 +28,6 @@ contactRoutes.patch(
 contactRoutes.delete(
   "/:id",
   ensureAuthMiddleware,
-  ensureItIsExistMiddleware(Contact),
   deleteContactController
 );
 
